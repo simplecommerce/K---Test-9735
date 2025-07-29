@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.app-container {
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom scrollbar - vertical only */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0; /* Remove horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth transitions */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Focus styles */
+input:focus, textarea:focus, button:focus {
+  outline: none;
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Chat animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.message-user {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.message-agent {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+/* Fix for overflow issues */
+.overflow-x-auto {
+  overflow-x: hidden !important; /* Force no horizontal scroll */
+}
+
+/* Only allow horizontal scroll when explicitly needed */
+.allow-x-scroll {
+  overflow-x: auto !important;
+}
+
+/* Ensure tables don't cause overflow */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Ensure images don't overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for button positioning */
+button {
+  max-width: 100%;
+}
+
+/* Fix for toggle button to prevent it from causing overflow */
+.sidebar-toggle {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  z-index: 10;
+  transform: translateX(50%);
+}
+
+/* Improved scrolling for content areas */
+.scroll-area {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Fix for main content areas */
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Ensure proper nesting of scrollable content */
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-scrollable {
+  flex: 1;
+  overflow-y: auto;
+}
